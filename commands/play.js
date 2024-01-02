@@ -258,7 +258,9 @@ module.exports = {
         volume: client.botconfig.DefaultVolume,
       });
       if (player.state != "CONNECTED") await player.connect();
+          this.log(`1`);
       let search = interaction.data.options[0].value;
+          this.log(`2`);
       let res;
 
       if (search.match(client.Lavasfy.spotifyPattern)) {
