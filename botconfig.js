@@ -4,9 +4,9 @@ module.exports = {
   DefaultPrefix: process.env.Prefix || "!",
   Port: 80, //Which port website gonna be hosted
   SupportServer: "https://discord.io/sciencegear", // Support Server Link
-  Token: process.env.Token || "MTE4NzgxMTMxMzgyOTgwNjE2MA.GO-ywg.9ctVby5Yne60j2YLqs4MUeE_-be4bLzF4WlsGo", // Discord Bot Token
-  ClientID: process.env.Discord_ClientID || "1187811313829806160", 
-  ClientSecret: process.env.Discord_ClientSecret || "LUn8GzC0twxpVR1kU3OLvxn5HMm5iFYC", 
+  Token: process.env.Token, // Discord Bot Token
+  ClientID: process.env.Discord_ClientID, 
+  ClientSecret: process.env.Discord_ClientSecret, 
   Scopes: ["identify", "guilds", "applications.commands"],
   ServerDeafen: true, 
   DefaultVolume: 100,
@@ -36,8 +36,8 @@ module.exports = {
   },
   
   Spotify: {
-    ClientID: process.env.Spotify_ClientID || "7436ac02cb1448879acc03a15eeadb8a", 
-    ClientSecret: process.env.Spotify_ClientSecret || "07c74a4b754245249a309d15aac6d4b6", 
+    ClientID: process.env.Spotify_ClientID, 
+    ClientSecret: process.env.Spotify_ClientSecret, 
   },
 
 
