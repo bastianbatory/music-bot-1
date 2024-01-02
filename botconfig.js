@@ -1,7 +1,7 @@
 module.exports = {
   Admins: ["UserID", "UserID"], //DEV'S
   ExpressServer: true, 
-  DefaultPrefix: process.env.Prefix || "!",
+  DefaultPrefix: process.env.Prefix,
   Port: 80, //Which port website gonna be hosted
   SupportServer: "https://discord.io/sciencegear", // Support Server Link
   Token: process.env.Token, // Discord Bot Token
