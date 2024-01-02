@@ -20,10 +20,13 @@ module.exports = async (client, oldState, newState) => {
   // get the state change
   if (oldState.channel === null && newState.channel !== null)
     stateChange.type = "JOIN";
+    this.log(`JOIN`);
   if (oldState.channel !== null && newState.channel === null)
     stateChange.type = "LEAVE";
+      this.log(`LEave`);
   if (oldState.channel !== null && newState.channel !== null)
     stateChange.type = "MOVE";
+    this.log(`MOVE`);
   if (oldState.channel === null && newState.channel === null) return; // you never know, right
   if (newState.serverMute == true && oldState.serverMute == false)
     return player.pause(true);
@@ -32,14 +35,18 @@ module.exports = async (client, oldState, newState) => {
   // move check first as it changes type
   if (stateChange.type === "MOVE") {
     if (oldState.channel.id === player.voiceChannel) stateChange.type = "LEAVE";
+        this.log(`A`);
     if (newState.channel.id === player.voiceChannel) stateChange.type = "JOIN";
+        this.log(`B`);
   }
   // double triggered on purpose for MOVE events
   if (stateChange.type === "JOIN") stateChange.channel = newState.channel;
+      this.log(`C`);
   if (stateChange.type === "LEAVE") stateChange.channel = oldState.channel;
-
+    this.log(`D`);
   // check if the bot's voice channel is involved (return otherwise)
   if (!stateChange.channel || stateChange.channel.id !== player.voiceChannel)
+        this.log(`E`);
     return;
 
   // filter current users based on being a bot
@@ -68,15 +75,7 @@ module.exports = async (client, oldState, newState) => {
       }
       break;
     case "LEAVE":
-      if (stateChange.members.size === 0 && !player.paused && player.playing) {
-        player.pause(true);
-
-        let emb = new MessageEmbed()
-          .setAuthor(`Paused!`, client.botconfig.IconURL)
-          .setColor(client.botconfig.EmbedColor)
-          .setDescription(`The player has been paused because everybody left`);
-        await client.channels.cache.get(player.textChannel).send(emb);
-      }
+    this.log(`F LEAVE`);
       break;
   }
 };
