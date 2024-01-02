@@ -26,11 +26,11 @@ module.exports = {
   },
 
   Lavalink: {
-    host : "n1.ll.darrennathanael.com",
+    host : "lavalink.lexnet.cc",
     id: "Main",
-    port: 2269, 
-    pass: "glasshost1984", 
-    secure: false, 
+    port: 443, 
+    pass: "lexn3tl@val!nk", 
+    secure: true, 
     retryAmount: 200, 
     retryDelay: 40, 
   },
