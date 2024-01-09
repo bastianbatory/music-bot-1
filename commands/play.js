@@ -257,12 +257,11 @@ module.exports = {
         selfDeafen: client.botconfig.ServerDeafen,
         volume: client.botconfig.DefaultVolume,
       });
-      if (player.state != "CONNECTED") await player.connect() {
+      if (player.state != "CONNECTED") await player.connect()
         return client.sendTime(
           interaction,
           "1"
         );
-      }
       let search = interaction.data.options[0].value;
         return client.sendTime(
           interaction,
